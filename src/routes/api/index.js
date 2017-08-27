@@ -3,8 +3,10 @@ import addRoutes from '../../utils/routes'
 import { isJwtAuthenticated } from '../../controllers/auth'
 import ratelimit from '../../middlewares/ratelimit2'
 import redis from 'redis'
+import config from 'config'
 
-const client = redis.createClient()
+const redisUrl = config.get('Customer.redisUrl')
+const client = redis.createClient(redisUrl)
 
 const ratelimiter = ratelimit({
   db: client,

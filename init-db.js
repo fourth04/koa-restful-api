@@ -68,10 +68,16 @@ async function init () {
   await user1.addRole(role1)
   let user2 = await models.User.create({
     name: 'normal',
-    email: 'normal@126.com',
+    email: 'normal@163.com',
     password: 'qwe123!Q'
   })
   await user2.addRole(role4)
+  let user3 = await models.User.create({
+    name: 'act',
+    email: 'act@126.com',
+    password: 'qwe123!Q'
+  })
+  await user3.addRole(role1)
 
   if (env !== 'production') {
     // 新增Fake测试数据
